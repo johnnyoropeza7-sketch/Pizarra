@@ -1,0 +1,14 @@
+name: Mantener Supabase activo
+on:
+  schedule:
+    - cron: "0 12 * * 1,4"
+  workflow_dispatch:
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Despertar pizarra-mental
+        run: |
+          curl -s -o /dev/null -w "%{http_code}\n" \
+            "https://kpvzaempfgszupeygukg.supabase.co/rest/v1/" \
+            -H "apikey: sb_publishable_bbTNjAv3wqNo9arJCI1Xpw_RCRQLRhR"
